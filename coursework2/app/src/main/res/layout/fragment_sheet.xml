@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".sheetfragment.SheetFragment">
+
+    <ImageView
+        android:id="@+id/image_film"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/purple_200"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recuclerfilmview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addtextcollection"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_film"
+        android:layout_marginStart="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Актер"
+        app:layout_constraintBottom_toBottomOf="@+id/image_film"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@+id/image_film"
+        app:layout_constraintTop_toTopOf="@+id/image_film"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text1"
+        android:layout_marginStart="10dp"
+        android:text="Имя_Героя"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@+id/image_film"
+        app:layout_constraintTop_toBottomOf="@+id/text1" />
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="7.3"
+        app:layout_constraintStart_toStartOf="@+id/image_film"
+        app:layout_constraintTop_toTopOf="@+id/image_film" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="30dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/icon_end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+
+        android:id="@+id/addtocollection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="4dp"
+        android:src="@drawable/icon_addtocollection"
+        app:layout_constraintStart_toStartOf="@id/image_film"
+        app:layout_constraintTop_toBottomOf="@id/image_film" />
+
+    <TextView
+        android:id="@+id/addtextcollection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Добавить в коллекцию"
+        app:layout_constraintBottom_toBottomOf="@+id/addtocollection"
+        app:layout_constraintStart_toEndOf="@+id/addtocollection"
+        app:layout_constraintTop_toTopOf="@+id/addtocollection" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

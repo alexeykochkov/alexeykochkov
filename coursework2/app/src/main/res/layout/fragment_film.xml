@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    tools:context=".FilmFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageViewPoster"
+                android:layout_width="match_parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="400dp"
+                tools:src="@tools:sample/avatars"
+                android:scaleType="centerCrop"/>
+
+            <ImageButton
+                android:id="@+id/icon1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_1"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="@id/imageViewPoster"
+                app:layout_constraintStart_toStartOf="@id/imageViewPoster"
+                app:layout_constraintEnd_toStartOf="@id/icon2"
+               app:layout_constraintHorizontal_chainStyle="packed"
+                android:padding="4dp"
+                android:layout_marginBottom="20dp"
+                />
+
+            <ImageButton
+                android:id="@+id/icon2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_2"
+                android:background="@android:color/transparent"
+                app:layout_constraintStart_toEndOf="@+id/icon1"
+                app:layout_constraintBottom_toBottomOf="@id/imageViewPoster"
+                app:layout_constraintEnd_toStartOf="@id/icon3"
+                android:padding="4dp"
+                android:layout_marginBottom="20dp"
+                />
+            <ImageButton
+                android:id="@+id/icon3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_3"
+                android:background="@android:color/transparent"
+                app:layout_constraintStart_toEndOf="@+id/icon2"
+                app:layout_constraintBottom_toBottomOf="@id/imageViewPoster"
+                app:layout_constraintEnd_toStartOf="@id/icon4"
+                android:padding="4dp"
+                android:layout_marginBottom="20dp"
+                />
+            <ImageButton
+                android:id="@+id/icon4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_4"
+                android:background="@android:color/transparent"
+                app:layout_constraintStart_toEndOf="@+id/icon3"
+                app:layout_constraintBottom_toBottomOf="@id/imageViewPoster"
+                app:layout_constraintEnd_toStartOf="@id/icon5"
+                android:padding="4dp"
+                android:layout_marginBottom="20dp"
+                />
+            <ImageButton
+                android:id="@+id/icon5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_5"
+                android:background="@android:color/transparent"
+                app:layout_constraintStart_toEndOf="@+id/icon4"
+                app:layout_constraintBottom_toBottomOf="@id/imageViewPoster"
+                app:layout_constraintEnd_toEndOf="@+id/imageViewPoster"
+                android:padding="4dp"
+                android:layout_marginBottom="20dp"
+                />
+
+            <TextView
+                android:id="@+id/text_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:text="@tools:sample/lorem/random"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewPoster"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <include
+                android:id="@+id/included1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/include_text"
+                app:layout_constraintTop_toBottomOf="@+id/text_view"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                app:layout_constraintTop_toBottomOf = "@+id/included1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/fragment_custom_view_second" />
+
+            <include
+                android:id="@+id/included2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/include_text"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+                />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView2"
+                app:layout_constraintTop_toBottomOf = "@+id/included2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/fragment_custom_view_second" />
+
+            <include
+                android:id="@+id/included3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/include_text"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView2"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView3"
+                app:layout_constraintTop_toBottomOf = "@+id/included3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/fragment_custom_view_third" />
+
+            <include
+                android:id="@+id/included4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/include_text"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView3"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                app:layout_constraintTop_toBottomOf = "@+id/included4"
+                android:id="@+id/recyclerView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/fragment_custom_view" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+    <ImageButton
+        android:id="@+id/imageButtonBack"
+        android:src="@drawable/caret_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:background="@android:color/transparent"/>
+
+
+
+
+
+</FrameLayout>

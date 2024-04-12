@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstFragment">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.example.coursework2.onboardingf_fragments.FirstFragment"
+        tools:layout="@layout/fragment_first">
+        <action
+            android:id="@+id/action_Thirst_To_Second"
+            app:destination="@+id/secondFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.example.coursework2.onboardingf_fragments.SecondFragment"
+        tools:layout="@layout/fragment_second">
+        <action
+            android:id="@+id/action_Second_To_Third"
+            app:destination="@+id/thirdFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.example.coursework2.onboardingf_fragments.ThirdFragment"
+        tools:layout="@layout/fragment_third">
+        <action
+            android:id="@+id/action_Third_To_Fourth"
+            app:destination="@+id/fourthFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fourthFragment"
+        android:name="com.example.coursework2.onboardingf_fragments.FourthFragment"
+        tools:layout="@layout/fragment_fourth">
+        <action
+            android:id="@+id/action_Fourth_To_Homepage"
+            app:destination="@+id/homepageFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homepageFragment"
+        android:name="com.example.coursework2.HomepageFragment"
+        tools:layout="@layout/fragment_homepage">
+        <action
+            android:id="@+id/action_Homepage_To_AllPremieres"
+            app:destination="@+id/allPremieres" />
+        <action
+            android:id="@+id/action_Homepage_To_FilmFragment"
+            app:destination="@+id/filmfragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/allPremieres"
+        android:name="com.example.coursework2.AllPremieres"
+        tools:layout="@layout/fragment_all_premieres">
+        <action
+            android:id="@+id/action_allPremieres_To_FilmFragment"
+            app:destination="@+id/filmfragment"/>
+        <argument
+            android:name="first"
+            app:argType="integer"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/filmfragment"
+        android:name="com.example.coursework2.FilmFragment"
+        tools:layout="@layout/fragment_film">
+        <argument
+            android:name="premierFilm"
+            app:argType="com.example.coursework2.premier.PremierFilm"
+            />
+        <action
+            android:id="@+id/action_filmfragment_to_actorfragment"
+            app:destination="@id/actorfragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/actorfragment"
+        android:name="com.example.coursework2.ActorFragment"
+        tools:layout="@layout/fragment_actor">
+        <argument
+            android:name="staffInfo"
+            app:argType="com.example.coursework2.staff.StaffInfo"
+            />
+    </fragment>
+
+
+</navigation>
+
+
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".onboardingf_fragments.ThirdFragment">
+
+    <ImageView
+        android:layout_width="360dp"
+        android:layout_height="270dp"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/onboarding3_pic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/buttonThirdFragmentToFourghtFragment"
+        android:layout_width="308dp"
+        android:layout_height="18.24dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/white"
+        android:src="@drawable/skillcinema"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="201dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="420dp"
+        android:src="@drawable/find_premieres"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:layout_width="32dp"
+        android:layout_height="8dp"
+        android:layout_marginLeft="26dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="550dp"
+        android:src="@drawable/dots"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
