@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.coursework2.database.AppDatabase
 import com.example.coursework2.databinding.FragmentHomepageBinding
 import com.example.coursework2.popular.PopularAdapter
 import com.example.coursework2.popular.PopularInfo
@@ -23,7 +24,9 @@ class HomepageFragment : Fragment() {
 
     private val viewModel: MVM by viewModels()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        viewModel.databaseMVM = (activity?.application as AppDatabase).database
         super.onCreate(savedInstanceState)
     }
 

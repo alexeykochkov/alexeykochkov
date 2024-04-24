@@ -1,5 +1,6 @@
 package com.example.coursework2
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,18 +11,15 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.coursework2.database.AppDatabase
 import com.example.coursework2.databinding.FragmentFilmBinding
-import com.example.coursework2.databinding.FragmentHomepageBinding
-import com.example.coursework2.popular.PopularAdapter
-import com.example.coursework2.popular.PopularInfo
+import com.example.coursework2.sheetfragment.SheetFragment
 import com.example.coursework2.staff.StaffAdapter
 import com.example.coursework2.staff.StaffInfo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 
@@ -51,6 +49,7 @@ class FilmFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel.databaseMVM = (activity?.application as AppDatabase).database
     }
 
     override fun onCreateView(
@@ -105,10 +104,26 @@ class FilmFragment : Fragment() {
                             it.filmId == args.premierFilm.kinopoiskId
                         }?.let { filmInTable ->
                             if (filmInTable.beLoved) {
+
+                                println("RED")
                                 binding.icon1.setImageResource(R.drawable.icon_1_active)
                             } else {
+                                println("GREY")
                                 binding.icon1.setImageResource(R.drawable.icon_1)
                             }
+                            if (filmInTable.wantToSee) {
+                                println("YELLOW")
+                                binding.icon2.setImageResource(R.drawable.icon_2_active)
+                            } else {
+                                binding.icon2.setImageResource(R.drawable.icon_2)
+                            }
+                            if (filmInTable.viewed) {
+                                println("PINK")
+                                binding.icon3.setImageResource(R.drawable.icon_3_active)
+                            } else {
+                                binding.icon3.setImageResource(R.drawable.icon_3)
+                            }
+
                         }
 
                     }
@@ -116,10 +131,32 @@ class FilmFragment : Fragment() {
             }
         }
 
+//        SheetFragment().show(parentFragmentManager, "") - переход на фрагмент с помощю фрагмент менеджера
+
         binding.icon1.setOnClickListener{
+            println("Like Like!")
             viewModel.changeLikeFilm(args.premierFilm.kinopoiskId)
         }
 
+        binding.icon2.setOnClickListener{
+            println("Like BE LOWED!")
+            viewModel.changeWantToSee(args.premierFilm.kinopoiskId)
+        }
+
+        binding.icon3.setOnClickListener{
+            println("Like VIEWED!")
+            viewModel.changeViewed(args.premierFilm.kinopoiskId)
+        }
+
+        binding.icon4.setOnClickListener{
+            println("SHARED!")
+            //создаем намерение
+            Intent(Intent.ACTION_SEND).apply {
+                setType("text/plain")
+                putExtra(Intent.EXTRA_TEXT, args.premierFilm.posterUrlPreview)
+                startActivity(Intent.createChooser(this,"share URL!"))
+            }
+        }
         return binding.root
     }
 

@@ -21,6 +21,7 @@ data class PremierFilm(
     val posterUrlPreview: String,
     @SerializedName("genres")
     val genres: List<Genres>,
+    var viewed: Boolean = false
 ) : Parcelable
 
 @Parcelize
